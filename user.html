@@ -123,7 +123,7 @@
         }
 
         function attack() {
-            print("You attack him, he quicly runs away into the dark");
+            print("You attack him, he quickly runs away into the dark");
              showOptions([
                 { text: "Follow him", action: follow },
                 { text: "Run Away", action: leaveCave }
@@ -142,7 +142,7 @@
                 function fightg() {
             print("you find a bomb next to you.");
              showOptions([
-                { text: "Blow up the wall, closing them in", action: cloesd },
+                { text: "Blow up the wall, closing you and them in", action: cloesd },
                 { text: "Throw the bomb at the goblins", action: throwf }
             ]);
             
@@ -166,7 +166,7 @@
         }
               
               function incart() {
-            print("you start going deeper in the shaft,you are now on a bridge in the cave; you find a bomb inside your cart and it is activated.");
+            print("you start going deeper in the shaft, you are now on a bridge in the cave; you find a bomb inside your cart and it is activated.");
              showOptions([
                 { text: "Throw the bomb into the pit", action: cartbomb },
                 { text: "Jump", action: jump }
@@ -174,7 +174,7 @@
             
         }
                 function cartbomb() {
-            print("You throw the bomb and it explodes.  You feel the cart rumbling, you find out that you exploded the shaft. You find a subterranean lake.");
+            print("You throw the bomb and it explodes. You feel the cart rumbling, you find out that you exploded the shaft. You find a subterranean lake.");
              showOptions([
                 { text: "Stay on the cart", action: cartend },
                 { text: "Jump into the lake", action: jumplake }
@@ -183,7 +183,7 @@
         }
         
         function jumplake() {
-            print("You fall into the lake. you find gems and a abundance of gold.");
+            print("You fall into the lake. You find gems and a abundance of gold.");
              showOptions([
                 { text: "Mine the gold and leave", action: end },
                 { text: "Leave the cave", action: leaveCave }
@@ -211,7 +211,7 @@
         }
                 
                 function jump() {
-            print("You jump, relizing that there wasn't a ground. Refresh if you want to re-enter the cave.");
+            print("You jump, realizing that there wasn't a ground. Refresh if you want to re-enter the cave.");
            options.innerHTML = "";
             
         }
