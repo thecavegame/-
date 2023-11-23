@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cave</title>
+    <style>
+    
+    footer {
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+  height: 2.5rem;
+  margin:5px;
+}
+
+        h1 {color:white;}
+        p {color:white;}
+           
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color:black;
+            
+        }
+        
+        
+
+        #output {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px auto;
+            max-width: 500px;
+        }
+
+        #options {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="output">Welcome to the The Cave. Click the buttons to make choices and progress through the story.</div>
+    <div id="options">
+        <button onclick="startGame()">Start Adventure</button>
+    </div>
+    <script>
+        const output = document.getElementById("output");
+        const options = document.getElementById("options");
+
+        function print(text) {
+            output.innerHTML += "<p>" + text + "</p>";
+        }
+
+        function showOptions(choices) {
+            options.innerHTML = "";
+            choices.forEach(choice => {
+                const button = document.createElement("button");
+                button.textContent = choice.text;
+                button.onclick = choice.action;
+                options.appendChild(button);
+            });
+        }
+
+        function startGame() {
+            output.innerHTML = "";
+            options.innerHTML = "";
+            print("You find yourself in a dark cave. What do you want to do?");
+            showOptions([
+                { text: "Explore the cave, try to find gold.", action: exploreCave },
+                { text: "Leave the cave", action: leaveCave }
+            ]);
+        }
+
+        function exploreCave() {
+            print("As you explore the cave, you find a treasure chest.");
+            showOptions([
+                { text: "Open the chest", action: openChest },
+                { text: "Leave the chest", action: leaveCave }
+            ]);
+        }
+
+        function openChest() {
+            print("Inside the chest, you find a sword and a torch.");
+            showOptions([
+                { text: "Equip the sword", action: equipSword },
+                { text: "Leave the sword", action: leaveCave }
+            ]);
+        }
+
+        function equipSword() {
+            print("You equip the sword.");
+            showOptions([
+                { text: "Continue the journey", action: goblin },
+                { text: "Leave the cave", action: leaveCave }
+            ]);
+        }
+
+        function goblin() {
+            print("You see a sleeping goblin.");
+             showOptions([
+                { text: "Step closer", action: closer },
+                { text: "Run Away", action: leaveCave }
+            ]);
+            
+        }
+        
+        function closer() {
+            print("He wakes up and goes toward you.");
+             showOptions([
+                { text: "Attack Him", action: attack },
+                { text: "Run Away", action: leaveCave }
+            ]);
+            
+        }
+
+        function attack() {
+            print("You attack him, he quicly runs away into the dark");
+             showOptions([
+                { text: "Follow him", action: follow },
+                { text: "Run Away", action: leaveCave }
+            ]);
+            
+        }
+           function follow() {
+            print("You follow him and you meet a horde of goblins, Do you want to escape or fight them?");
+             showOptions([
+                { text: "Throw the torch at the goblins and run away", action: runa },
+                { text: "Fight them", action: fightg }
+            ]);
+            
+        }
+        
+                function fightg() {
+            print("you find a bomb next to you.");
+             showOptions([
+                { text: "Blow up the wall, closing them in", action: cloesd },
+                { text: "Throw the bomb at the goblins", action: throwf }
+            ]);
+            
+        }
+        
+        function throwf() {
+            print("all the goblins die.");
+             showOptions([
+                { text: "Go deeper into the cave", action: godeep  },
+                { text: "Leave the cave", action: leaveCave }
+            ]);
+            
+        }
+            function godeep() {
+            print("you start going deeper, you find a end to the cave except there is a minecart.");
+             showOptions([
+                { text: "Get inside", action: incart },
+                { text: "Return home", action: leaveCave }
+            ]);
+            
+        }
+              
+              function incart() {
+            print("you start going deeper in the shaft,you are now on a bridge in the cave; you find a bomb inside your cart and it is activated.");
+             showOptions([
+                { text: "Throw the bomb into the pit", action: cartbomb },
+                { text: "Jump", action: jump }
+            ]);
+            
+        }
+                function cartbomb() {
+            print("You throw the bomb and it explodes.  You feel the cart rumbling, you find out that you exploded the shaft. You find a subterranean lake.");
+             showOptions([
+                { text: "Stay on the cart", action: cartend },
+                { text: "Jump into the lake", action: jumplake }
+            ]);
+            
+        }
+        
+        function jumplake() {
+            print("You fall into the lake. you find gems and a abundance of gold.");
+             showOptions([
+                { text: "Mine the gold and leave", action: end },
+                { text: "Leave the cave", action: leaveCave }
+            ]);
+            
+        }
+        
+        function end() {
+            print("You completed your goal! Share this game with your friends!");
+           options.innerHTML = "";
+            
+        }
+                
+              
+                
+                
+                
+                
+                //endings
+                
+                function cartend() {
+            print("The bridge breaks and you fall down. Refresh if you want to re-enter the cave.");
+           options.innerHTML = "";
+            
+        }
+                
+                function jump() {
+            print("You jump, relizing that there wasn't a ground. Refresh if you want to re-enter the cave.");
+           options.innerHTML = "";
+            
+        }
+                
+                function cloesd() {
+            print("You blew up the wall but you were under it. Refresh if you want to re-enter the cave.");
+           options.innerHTML = "";
+            
+        }
+                
+                function runa() {
+            print("You accidently trip on a stone and fall in a pit of lava. Refresh if you want to re-enter the cave. ");
+           options.innerHTML = "";
+            
+        }
+
+        function leaveCave() {
+            print("You decide to leave the cave. Refresh if you want to re-enter the cave.");
+            options.innerHTML = "";
+        }
+        
+    
+    </script>
+    
+
+
+</body>
+</html>
